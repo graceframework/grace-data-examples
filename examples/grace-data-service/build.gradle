@@ -15,20 +15,20 @@ buildscript {
     }
     dependencies {
         classpath "org.graceframework:grace-gradle-plugin:$graceVersion"
-        classpath "org.graceframework.plugins:views-gradle:$graceViewsVersion"
     }
 }
 
 group = "examples"
 
 apply plugin: "org.graceframework.grace-web"
-apply plugin: "org.graceframework.plugins.views-json"
+apply plugin: "org.graceframework.grace-json"
 
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "org.springframework.boot:spring-boot-starter-logging"
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation "org.graceframework:grace-boot"
+    implementation "org.graceframework:grace-boot-hibernate"
     implementation "org.graceframework:grace-core"
     implementation "org.graceframework:grace-logging"
     implementation "org.graceframework:grace-plugin-codecs"
@@ -42,10 +42,9 @@ dependencies {
     implementation "org.graceframework:grace-plugin-rest"
     implementation "org.graceframework:grace-plugin-services"
     implementation "org.graceframework:grace-plugin-url-mappings"
-    // implementation "org.graceframework.plugins:cache"
+    // implementation "org.graceframework:grace-plugin-cache"
     implementation "org.graceframework:grace-plugin-events"
-    implementation "org.graceframework.plugins:views-json"
-    implementation project(":hibernate")
+    implementation "org.graceframework:grace-views-json"
     runtimeOnly 'com.h2database:h2'
     profile "org.graceframework.profiles:rest-api"
     testImplementation "org.graceframework:grace-test-support"

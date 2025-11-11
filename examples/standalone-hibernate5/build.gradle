@@ -12,7 +12,7 @@ dependencyManagement {
 }
 
 dependencies {
-    implementation project(":grace-datastore-gorm-hibernate")
+    implementation "org.graceframework:grace-datastore-gorm-hibernate"
     runtimeOnly "com.h2database:h2"
     runtimeOnly "org.apache.tomcat:tomcat-jdbc"
     runtimeOnly "org.slf4j:slf4j-api"

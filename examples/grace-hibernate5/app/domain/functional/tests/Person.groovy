@@ -1,5 +1,5 @@
 package functional.tests
 
-abstract class Person {
+class Person {
 
 }

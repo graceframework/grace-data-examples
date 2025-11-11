@@ -41,6 +41,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation "org.graceframework:grace-core"
     implementation "org.graceframework:grace-boot"
+    implementation "org.graceframework:grace-boot-hibernate"
     implementation "org.graceframework:grace-logging"
     implementation "org.graceframework:grace-plugin-core"
     implementation "org.graceframework:grace-plugin-codecs"
@@ -56,11 +57,10 @@ dependencies {
     implementation "org.graceframework:grace-plugin-services"
     implementation "org.graceframework:grace-plugin-url-mappings"
     implementation "org.graceframework:grace-plugin-async"
-    // implementation "org.graceframework.plugins:cache"
+    // implementation "org.graceframework:grace-plugin-cache"
     implementation "org.graceframework:grace-plugin-events"
-    implementation "org.graceframework.plugins:fields"
-    implementation "org.graceframework.plugins:scaffolding"
-    implementation project(":hibernate")
+    implementation "org.graceframework:grace-plugin-fields"
+    implementation "org.graceframework:grace-plugin-scaffolding"
     runtimeOnly "com.h2database:h2"
     implementation "net.sf.ehcache:ehcache:2.10.6"
     implementation ("org.hibernate:hibernate-ehcache:$hibernateCoreVersion") {
@@ -107,7 +107,9 @@ tasks.withType(Test) {
 //         version = '126.0.6478.126'
 //         fallbackTo32Bit = true
 //     }
-//     geckodriver '0.33.0'
+//     geckodriver {
+//         version = '0.33.0'
+//     }
 // }
 
 tasks.withType(Test) {

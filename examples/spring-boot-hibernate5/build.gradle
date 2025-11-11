@@ -28,10 +28,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.apache.groovy:groovy'
     implementation "org.graceframework:grace-boot:$graceVersion"
+    implementation "org.graceframework:grace-boot-hibernate:$graceVersion"
     implementation "org.graceframework:grace-core:$graceVersion"
     implementation "org.graceframework:grace-plugin-core:$graceVersion"
     implementation "org.graceframework:grace-plugin-datasource:$graceVersion"
-    implementation project(":hibernate")
     implementation "org.javassist:javassist:3.30.2-GA"
     runtimeOnly 'com.h2database:h2'
     implementation "net.sf.ehcache:ehcache:2.10.6"
