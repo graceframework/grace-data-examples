@@ -1,3 +1,38 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            name = 'Maven Central Portal Snapshots'
+            url = 'https://central.sonatype.com/repository/maven-snapshots/'
+
+            content {
+                includeGroupAndSubgroups 'org.graceframework'
+            }
+            mavenContent {
+                snapshotsOnly()
+            }
+        }
+    }
+    dependencies {
+        classpath "org.graceframework:grace-gradle-plugin:$graceVersion"
+        classpath "org.graceframework.plugins:asset-pipeline-gradle:$assetPipelineVersion"
+        // classpath "com.github.erdi:webdriver-binaries-gradle-plugin:3.2"
+    }
+}
+
+apply plugin: "org.graceframework.grace-web"
+apply plugin: "org.graceframework.grace-gsp"
+apply plugin: "org.graceframework.grace-json"
+apply plugin: "org.graceframework.asset-pipeline"
+// apply plugin: "com.github.erdi.webdriver-binaries"
+
+group = "examples"
+
+configurations {
+    developmentOnly
+}
+
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-logging"
     implementation "org.springframework.boot:spring-boot-autoconfigure"
@@ -8,10 +43,10 @@ dependencies {
     implementation "org.graceframework:grace-plugin-services"
     implementation "org.graceframework:grace-plugin-datasource"
     implementation "org.graceframework:grace-boot"
+    implementation "org.graceframework:grace-boot-mongodb"
     implementation "org.graceframework:grace-logging"
     implementation "org.graceframework:grace-plugin-cache"
     implementation "org.graceframework:grace-plugin-events"
-    implementation project(":grace-plugin")
     implementation "org.graceframework:grace-views-json"
     // implementation "org.graceframework:grace-views-json-templates"
     // implementation 'org.graceframework.plugins:spring-security-core:4.0.3'
