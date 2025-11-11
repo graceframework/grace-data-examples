@@ -281,3 +281,36 @@ subprojects { Project subproject ->
     }
 
 }
+
+def cleanTask = project.tasks.findByName('clean')
+if (cleanTask == null) {
+    task clean(type: Delete) {
+        delete(buildDir)
+    }
+}
+else {
+    cleanTask.doLast {
+        ant.delete(dir: 'build/docs')
+    }
+}
+
+tasks.withType(Groovydoc) {
+    group = 'Documentation'
+    docTitle = "Grace Data Examples - ${project.version}"
+    destinationDir = project.file('build/docs/manual/api')
+    def files = []
+    if (project.file('src/main/groovy').exists()) {
+        files += project.files('src/main/groovy')
+    }
+    source = files
+    classpath += configurations.documentation
+}
+
+publishGuide {
+    dependsOn groovydoc
+    sourceDir = project.file('src/docs')
+}
+
+task docs {
+    dependsOn groovydoc, publishGuide
+}

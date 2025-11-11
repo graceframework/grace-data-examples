@@ -1,0 +1,4 @@
+https://graceframework.org/grace-data-examples/2024.0.x/[This repository] contains example projects for the different Grace Data modules to showcase the API and how to use the features provided by the modules.
+
+* https://graceframework.org/grace-data-hibernate/2024.0.x/[Grace Data Hibernate]
+* https://graceframework.org/grace-data-mongodb/2024.0.x/[Grace Data MongoDB]
