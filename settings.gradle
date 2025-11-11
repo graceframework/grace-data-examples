@@ -1,0 +1,14 @@
+rootProject.name = 'Grace.Data.Hibernate'
+
+// Core
+include "grace-datastore-gorm-hibernate"
+
+// Plugins
+include 'grace-plugin'
+project(':grace-plugin').name = 'hibernate'
+
+// Examples
+// file("${rootDir}/examples").eachDir {
+// 	include "examples-${it.name}"
+//     project(":examples-${it.name}").projectDir = new File(settingsDir, "examples/${it.name}")
+// }
